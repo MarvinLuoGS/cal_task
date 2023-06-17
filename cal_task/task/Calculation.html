@@ -1,0 +1,21 @@
+{{ block title }}
+    Task
+{{ endblock }}
+{{ block content }}
+
+<link rel="stylesheet" href="{{ static 'contest_style.css' }}">
+<p id="timer">Time Left: {{ first_cal_minutes }}:{{ first_cal_seconds }}</p>
+<p>Questions currently answered: <span id = "countsum_text">0</span></p>
+
+<input type="hidden" name="cal_trials" id="id_cal_trials">
+<input type="hidden" name="cal_correct" id="id_cal_correct">
+{{ formfield_errors 'cal_trials' }}
+{{ formfield_errors 'cal_correct' }}
+
+{{ include_sibling 'cal_question.html' }}
+
+<button type="button" class="btn btn-primary" id="submitButton" onclick="checkAnswers()" style="display:none;">Time up, submit!</button> 
+
+<script src="{{ static 'contest_script.js' }}"></script> 
+
+{{ endblock }}

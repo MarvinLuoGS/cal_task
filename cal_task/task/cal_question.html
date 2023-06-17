@@ -1,0 +1,80 @@
+<div id = 'question_form'>
+<div class="tab">
+    
+    <table>
+        {{ for q in draw_dict_q1}}
+            <tr>
+                <td class="question">{{ q }}</td>
+                <td class="answer"><input type = "number" name = "{{ q }}" id="{{ q }}"class="answer1" data-question="{{ q }}"></td>
+            </tr>
+        {{ endfor }}
+    </table>
+    Page 1/5
+    <p>
+        <button type="button" class="btn-tab" data-offset="1">Next</button>
+    </p>
+</div>
+<div class="tab">
+
+    <table>
+        {{ for q in draw_dict_q2 }}
+        <tr>
+            <td class="question">{{ q }}</td>
+            <td class="answer"><input type = "number" name = "{{ q }}" id="{{ q }}" class="answer1" data-question="{{ q }}"></td>
+        </tr>
+        {{ endfor }}
+    </table>
+    Page 2/5
+    <p>
+        <button type="button" class="btn-tab" data-offset="-1">Previous</button>
+        <button type="button" class="btn-tab" data-offset="1">Next</button>
+    </p>
+</div>
+<div class="tab">
+    
+    <table>
+        {{ for q in draw_dict_q3 }}
+        <tr>
+            <td class="question">{{ q }}</td>
+            <td class="answer"><input type = "number" name = "{{ q }}" id="{{ q }}" class="answer1" data-question="{{ q }}"></td>
+        </tr>
+        {{ endfor }}
+    </table>
+    Page 3/5
+    <p>
+        <button type="button" class="btn-tab" data-offset="-1">Previous</button>
+        <button type="button" class="btn-tab" data-offset="1">Next</button>
+    </p>
+</div>
+<div class="tab">
+   
+    <table>
+        {{ for q in draw_dict_q4 }}
+        <tr>
+            <td class="question">{{ q }}</td>
+            <td class="answer"><input type = "number" name = "{{ q }}" id="{{ q }}" class="answer1" data-question="{{ q }}"></td>
+        </tr>
+        {{ endfor }}
+    </table>
+    Page 4/5
+    <p>
+        <button type="button" class="btn-tab" data-offset="-1">Previous</button>
+        <button type="button" class="btn-tab" data-offset="1">Next</button>
+    </p>
+</div>
+<div class="tab">
+    
+    <table>
+        {{ for q in draw_dict_q5 }}
+        <tr>
+            <td class="question">{{ q }}</td>
+            <td class="answer"><input type = "number" name = "{{ q }}" id="{{ q }}" class="answer1" data-question="{{ q }}"></td>
+        </tr>
+        {{ endfor }}
+    </table>
+    Page 5/5
+    <p>
+        <button type="button" class="btn-tab" data-offset="-1">Previous</button>
+    </p>
+</div>
+</div>

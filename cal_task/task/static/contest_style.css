@@ -1,0 +1,45 @@
+.tab {
+    display: none;
+}
+
+.btn-tab {
+    background-color: #36bb22;
+    border: none;
+    color: white;
+    padding: 8px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.btn.btn-primary{
+    font-size: 16px;
+    padding: 12px 16px;
+    
+}
+table {
+    border-collapse:collapse;
+
+    /*border:1px solid black;*/
+}
+td {
+    /*border:1px solid black;*/
+    height:60px;
+
+}
+th {
+    text-align:center;
+    /*border:1px solid black;*/
+
+}
+.question{
+    text-align:left;
+    width:90px;
+    font-size: large;
+}
+.answer{
+
+    width:10px;
+}
