@@ -46,7 +46,7 @@ btn.onclick = function () {
 // count down timer, the current page will not be submitted when the countdown ends, and the refresh will not reset
 
 
-  window.onload = function(){
+  //window.onload = function(){
       var time;
       // get the element to be modified
       var pTime = document.getElementById('timer');
@@ -59,9 +59,9 @@ btn.onclick = function () {
       // if countDown can be found, the page has been refreshed
       if( round_number == 1 ){
         if(sessionStorage.getItem('countDown')){
-            time = sessionStorage.getItem('countDown'); 
-            var time1 = new Date().getTime(); // get current time
-            var remain_time = total_time - (time1-time)/1000 // get remaining time
+            start_time = sessionStorage.getItem('countDown'); 
+            var now_time = new Date().getTime(); // get current time
+            var remain_time = total_time - (now_time-start_time)/1000 // get remaining time
             m = Math.floor(remain_time/60);
             if (remain_time < 60){
                 s = Math.floor(remain_time);
@@ -70,15 +70,15 @@ btn.onclick = function () {
                 s = Math.floor(remain_time - m*60)
             };
         }else{
-            time = new Date().getTime(); // If it has not been refreshed, get the current time as the page start time and save it as countDown
-            sessionStorage.setItem('countDown',time);
+            start_time = new Date().getTime(); // If it has not been refreshed, get the current time as the page start time and save it as countDown
+            sessionStorage.setItem('countDown',start_time);
         };
       };
       if( round_number == 2 ){
         if(sessionStorage.getItem('countDown2')){
-            time = sessionStorage.getItem('countDown2'); 
-            var time1 = new Date().getTime(); // get current time
-            var remain_time = total_time - (time1-time)/1000 // get remaining time
+            start_time = sessionStorage.getItem('countDown2'); 
+            var now_time = new Date().getTime(); // get current time
+            var remain_time = total_time - (now_time-start_time)/1000 // get remaining time
             m = Math.floor(remain_time/60);
             if (remain_time < 60){
                 s = Math.floor(remain_time);
@@ -87,29 +87,24 @@ btn.onclick = function () {
                 s = Math.floor(remain_time - m*60)
             };
         }else{
-            time = new Date().getTime(); // If it has not been refreshed, get the current time as the page start time and save it as countDown
-            sessionStorage.setItem('countDown2',time);
+            start_time = new Date().getTime(); // If it has not been refreshed, get the current time as the page start time and save it as countDown
+            sessionStorage.setItem('countDown2',start_time);
         };
       };
       // use setInterval(function(),1000) to set a timer
       var timer = setInterval(function(){
-          // if s is '00',change it to '59', e.g after 4:00, display 3:59
-          if(s == '00' && m > 0){
+          // if s is 0,change it to 59, e.g after 4:00, display 3:59
+          if(s == 0 && m > 0){
               s = 59;
               m--;
           } else{ // else just decrease the value of s
               s--;
           };
-          //if s is between 0 and 9, then concatenate a string '0' to displayer it like '01'
-          if(s >= 0 && s <10){
-              s = '0' + Number(s)
-          };
-          //if m is between 0 and 9, then concatenate a string '0' to displayer it like '01'
-          if(m >= 0 && m <10){
-              m = '0' + Number(m)
-          }
+          //change m and s to string type and use .padStart() to add 0 in front of the number if it is less than 10
+          minutes = m.toString().padStart(2,'0');
+          seconds = s.toString().padStart(2,'0');
           // concatenate string to display
-          time_text = "Time Left:"+m+":"+s;
+          time_text = "Time Left:"+ minutes +":"+ seconds;
           pTime.innerHTML = time_text;
           // time is up, show red and bold reminders
           if (s <= 0 && m <= 0) {
@@ -120,7 +115,7 @@ btn.onclick = function () {
               document.getElementById('submitButton').style.display = "block";
           }
       },1000)
-  };
+//  };
 
 // get all the input elements 
 const answerInputs = document.querySelectorAll('.answer1');
